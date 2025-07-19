@@ -4,60 +4,65 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCarrito } from '../context/CarritoContext.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
 import { FaShoppingCart } from "react-icons/fa";
+import { TopBar, BottomBar, Logo, NavLinks, HoverableLink } from "../styles/NavbarStyles.js";
+import logoMate from "../assets/logoMate.png";
 
 export default function Navbar() {
   const { carrito } = useCarrito();
-  const { token, Logout } = useAuth(); // Traemos el token y logout
+  const { token, Logout } = useAuth();
   const navigate = useNavigate();
 
   const handleCarritoClick = () => {
     if (token) {
-      navigate("/carrito"); // Si está autenticado, va al carrito
+      navigate("/carrito");
     } else {
-      navigate("/login"); // Si no, lo manda al login
+      navigate("/login");
     }
   };
 
   return (
     <>
-      {/* Barra superior */}
-      <BsNavbar bg="dark" variant="dark" fixed="top">
+      {/* Barra superior personalizada */}
+      <TopBar>
         <Container className="d-flex justify-content-between align-items-center">
-          <BsNavbar.Brand as={Link} to="/">Tienda Yuyos</BsNavbar.Brand>
-          <div className="d-flex gap-3">
-            {token ? (
-              <Button onClick={Logout} variant="outline-light">Cerrar sesión</Button>
-            ) : (
-              <Button as={Link} to="/login" variant="outline-light">Acceder</Button>
+        <Logo src={logoMate} alt="Logo Tienda Yuyos" />
+        <div className="d-flex align-items-center gap-3">
+          {token ? (
+            <HoverableLink onClick={Logout}>
+              Cerrar sesión
+            </HoverableLink>
+          ) : (
+            <HoverableLink as={Link} to="/login">
+              Acceder
+            </HoverableLink>
+          )}
+          <div variant="light" className="position-relative" onClick={handleCarritoClick}>
+            <FaShoppingCart size={20} />
+            {carrito.length > 0 && (
+              <Badge bg="danger" pill className="position-absolute top-0 start-100 translate-middle">
+                {carrito.length}
+              </Badge>
             )}
-
-            <Button variant="outline-light" className="position-relative" onClick={handleCarritoClick}>
-              <FaShoppingCart size={20} />
-              {carrito.length > 0 && (
-                <Badge bg="danger" pill className="position-absolute top-0 start-100 translate-middle">
-                  {carrito.length}
-                </Badge>
-              )}
-            </Button>
           </div>
-        </Container>
-      </BsNavbar>
+        </div>
+        </Container> 
+      </TopBar>
 
-      <div style={{ marginTop: '56px' }}></div>
+      
 
-      {/* Barra inferior */}
-      <BsNavbar bg="light" variant="light" className="border-top border-bottom sticky-top">
-        <Container className="justify-content-center">
-          <Nav className="text-center gap-4">
-            <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-            <Nav.Link as={Link} to="/productos">Productos</Nav.Link>
-            <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
+      {/* Barra inferior personalizada */}
+      <BottomBar>
+        <Container>
+          <NavLinks>
+            <Link to="/" className="text-dark text-decoration-none">Inicio</Link>
+            <Link to="/productos" className="text-dark text-decoration-none">Productos</Link>
+            <Link to="/contacto" className="text-dark text-decoration-none">Contacto</Link>
             {token && (
-              <Nav.Link as={Link} to="/admin">Administración</Nav.Link>
+              <Link to="/admin" className="text-dark text-decoration-none">Administración</Link>
             )}
-          </Nav>
+          </NavLinks>
         </Container>
-      </BsNavbar>
+      </BottomBar>
     </>
   );
 }

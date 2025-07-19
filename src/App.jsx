@@ -13,12 +13,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login';
 import Administracion from './components/Administracion';
+import GlobalStyle from './styles/createGlobalStyle';
 
 function App() {
   return (
     <AuthProvider>
       <CarritoProvider>
         <Router>
+          <GlobalStyle />
           <div className="d-flex flex-column min-vh-100">
             <Navbar />
             <main className="flex-grow-1 p-3">

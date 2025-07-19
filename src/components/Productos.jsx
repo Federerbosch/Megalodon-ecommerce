@@ -1,6 +1,7 @@
 import { useCarrito } from '../context/CarritoContext.jsx';
 import { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import { HeaderCard, ItemPrice, ButtonCard } from '../styles/ProductsStyles.js';
 
 export default function Productos() {
     const [productos, setProductos] = useState([]);
@@ -28,22 +29,25 @@ export default function Productos() {
 
     return (
         <Container>
-            <h2>Productos</h2>
+            <h2 className='text-center my-5'>Productos</h2>
             <Row>
                 {productos.map((producto) => (
                     <Col md={4} key={producto.id} className="mb-4">
-                        <Card>
+                        <Card className='border-0 border-radius-4 shadow-sm'>
                             <Card.Img variant="top" src={producto.imagen} />
                             <Card.Body>
-                                <Card.Title>{producto.nombre}</Card.Title>
-                                <Card.Text>${producto.precio}</Card.Text>
-                                <Button 
+                                <HeaderCard>
+                                    <Card.Title>{producto.nombre}</Card.Title>
+                                    <ItemPrice>${producto.precio}</ItemPrice>
+                                </HeaderCard>
+                                <Card.Text>{producto.descripcion}</Card.Text>
+                                <ButtonCard 
                                     variant="primary" 
                                     onClick={() => agregarAlCarrito(producto)}
                                     
                                 >
                                     Agregar al carrito
-                                </Button>
+                                </ButtonCard>
                             </Card.Body>
                         </Card>
                     </Col>
