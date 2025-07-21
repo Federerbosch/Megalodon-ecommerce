@@ -35,16 +35,13 @@ export const NavLinks = styled.div`
 
   a {
     color: #333;
-    text-decoration: none;
     font-weight: 500;
     transition: color 0.2s;
 
-    &:hover {
-      color: #a94442;
-      text-decoration: underline;
-    }
   }
 `;
+
+
 
 // Botón tipo enlace para cerrar sesión o login
 export const LinkButton = styled.button`
@@ -72,7 +69,29 @@ export const HoverableLink = styled(Link)`
 
   &:hover {
     color: #a94442;
-    text-decoration: underline;
     cursor: pointer;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  position: relative;
+  text-decoration: none;
+  color: black;
+  padding-bottom: 4px;
+  font-weight: 500;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #a94442;
+    transition: width 0.15s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
   }
 `;

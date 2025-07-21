@@ -34,9 +34,9 @@ export default function Carrito() {
             ))}
           </Row>
 
-          <div className="mt-4">
+          <div className="my-4">
             <h5>Total: ${total.toFixed(2)}</h5>
-            <Button variant="warning" onClick={()=> comprarCarrito()}>Comprar</Button>
+            <Button variant="warning" className="me-2" onClick={()=> comprarCarrito()}>Comprar</Button>
             <Button variant="warning" onClick={vaciarCarrito}>Vaciar Carrito</Button>
           </div>
         </>

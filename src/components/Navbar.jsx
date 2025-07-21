@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCarrito } from '../context/CarritoContext.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
 import { FaShoppingCart } from "react-icons/fa";
-import { TopBar, BottomBar, Logo, NavLinks, HoverableLink } from "../styles/NavbarStyles.js";
+import { TopBar, BottomBar, Logo, NavLinks, HoverableLink, StyledLink } from "../styles/NavbarStyles.js";
 import logoMate from "../assets/logoMate.png";
 
 export default function Navbar() {
@@ -54,11 +54,11 @@ export default function Navbar() {
       <BottomBar>
         <Container>
           <NavLinks>
-            <Link to="/" className="text-dark text-decoration-none">Inicio</Link>
-            <Link to="/productos" className="text-dark text-decoration-none">Productos</Link>
-            <Link to="/contacto" className="text-dark text-decoration-none">Contacto</Link>
+            <StyledLink to="/" className="text-dark text-decoration-none">Inicio</StyledLink>
+            <StyledLink to="/productos" className="text-dark text-decoration-none">Productos</StyledLink>
+            <StyledLink to="/contacto" className="text-dark text-decoration-none">Contacto</StyledLink>
             {token && (
-              <Link to="/admin" className="text-dark text-decoration-none">Administración</Link>
+              <StyledLink to="/admin" className="text-dark text-decoration-none">Administración</StyledLink>
             )}
           </NavLinks>
         </Container>

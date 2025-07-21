@@ -44,4 +44,7 @@ export const ButtonCard = styled.button`
     width: 100%;
     text-align: center;
 `
-    
+    export const ButtonAll = styled(ButtonCard)`    
+    width: auto;
+    display: block;
+`

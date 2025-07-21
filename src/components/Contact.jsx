@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
+import { ButtonAll } from '../styles/ProductsStyles';
 
 function Contact() {
   return (
@@ -18,7 +19,7 @@ function Contact() {
           <Form.Label>Mensaje</Form.Label>
           <Form.Control as="textarea" rows={3} />
         </Form.Group>
-        <Button variant="primary" type="submit">Enviar</Button>
+        <ButtonAll variant="primary" type="submit">Enviar</ButtonAll>
       </Form>
     </Container>
   );

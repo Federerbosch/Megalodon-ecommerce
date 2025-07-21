@@ -9,14 +9,13 @@ export default function Footer() {
     <FooterWrapper>
       <Container>
         <Row>
-          <Col md={6} className="mb-3">
-            <h5>Tienda Yuyos</h5>
-            <p>Productos naturales y artesanales para tu mate. 🌿</p>
-            <p>&copy; {new Date().getFullYear()} Todos los derechos reservados.</p>
+          <Col md={6} className="mb-3 ">
+            <h5 className="fw-bold">Tienda Yuyos🌿</h5>
+            <p className="fw-bold">&copy; {new Date().getFullYear()} Todos los derechos reservados.</p>
           </Col>
 
           <Col md={6} className="text-md-end">
-            <h5>Redes Sociales</h5>
+            <h5 className="fw-bold">Redes Sociales</h5>
             <SocialIcons>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>

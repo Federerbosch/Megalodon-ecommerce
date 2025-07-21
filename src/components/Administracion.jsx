@@ -1,6 +1,7 @@
 // src/pages/Administracion.jsx
 import React, { useState, useEffect } from "react";
 import { Form, Button, Table, Alert, Modal, Container } from "react-bootstrap";
+import { ButtonAll } from "../styles/ProductsStyles";
 
 const API_URL = "https://678fe99049875e5a1a93cf32.mockapi.io/api/v1/Productos";
 
@@ -110,9 +111,9 @@ export default function Administracion() {
           <Form.Label>Descripción</Form.Label>
           <Form.Control as="textarea" rows={3} value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
         </Form.Group>
-        <Button variant="primary" type="submit" className="mt-3">
+        <ButtonAll variant="primary" type="submit" className="mt-3">
           {editandoId ? "Actualizar Producto" : "Agregar Producto"}
-        </Button>
+        </ButtonAll>
       </Form>
 
       <hr />

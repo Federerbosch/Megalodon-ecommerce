@@ -37,7 +37,7 @@ function Home() {
       </Carousel>
 
       <Container className="my-5">
-        <h2 className="text-center mb-4">Destacados de productos</h2>
+        <h2 className="text-center mb-4">Cualidades de nuestros productos</h2>
         <Row className="justify-content-center text-center">
           <Col xs={12} sm={6} md={4} className="mb-4">
             <Image
@@ -47,7 +47,7 @@ function Home() {
               fluid
               style={{ width: '150px', height: '150px', objectFit: 'cover' }}
             />
-            <h5 className="mt-3">Hierba de Menta</h5>
+            <h5 className="mt-3">Calidad</h5>
             <p>Refrescante, ideal para digestión y energizar el mate.</p>
           </Col>
 
@@ -59,7 +59,7 @@ function Home() {
               fluid
               style={{ width: '150px', height: '150px', objectFit: 'cover' }}
             />
-            <h5 className="mt-3">Manzanilla</h5>
+            <h5 className="mt-3">Selección</h5>
             <p>Suave y relajante, perfecta para infusiones antes de dormir.</p>
           </Col>
 
@@ -71,7 +71,7 @@ function Home() {
               fluid
               style={{ width: '150px', height: '150px', objectFit: 'cover' }}
             />
-            <h5 className="mt-3">Cedrón</h5>
+            <h5 className="mt-3"></h5>
             <p>Aromático, con notas cítricas, ideal para mezclar con yerba.</p>
           </Col>
         </Row>
