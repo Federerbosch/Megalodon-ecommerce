@@ -28,7 +28,22 @@ export default function Navbar() {
         <Logo src={logoMate} alt="Logo Tienda Yuyos" />
         <div className="d-flex align-items-center gap-3">
           {token ? (
-            <HoverableLink onClick={Logout}>
+            <HoverableLink
+              as={Button}
+              onClick={() => {
+              Logout();
+              navigate("/");
+              }}
+              style={{
+                background: "none",
+                border: "none",
+                padding: 0,
+                margin: 0,
+                color: "inherit",
+                font: "inherit",
+                cursor: "pointer"
+              }}
+              >
               Cerrar sesión
             </HoverableLink>
           ) : (
